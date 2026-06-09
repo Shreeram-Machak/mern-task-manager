@@ -149,22 +149,6 @@ All task endpoints are protected and require a JWT token in the `Authorization` 
 | DELETE | `/api/tasks/:id` | Delete task |
 | PATCH | `/api/tasks/:id/toggle` | Toggle task status |
 
-## Screenshots
-
-Add screenshots of the main app screens here:
-
-- Login page
-- Register page
-- Task overview
-- Create or edit task form
-- Task list with search, filters, and pagination
-
-Example:
-
-```md
-![Login Page](screenshots/login.png)
-![Dashboard](screenshots/dashboard.png)
-```
 
 ## Useful Scripts
 
@@ -183,15 +167,3 @@ npm run build
 npm run lint
 npm run preview
 ```
-
-## Future Improvements
-
-- Dark mode
-- Task categories
-- Due dates
-- Email notifications
-- Drag and drop task management
-
-## Author
-
-Add your name, email, GitHub profile, or LinkedIn profile here.
