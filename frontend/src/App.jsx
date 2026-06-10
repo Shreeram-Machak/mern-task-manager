@@ -30,6 +30,18 @@ const api = axios.create({
   baseURL: API_URL,
 })
 
+const getApiErrorMessage = (error) => {
+  if (error.response?.data?.message) {
+    return error.response.data.message
+  }
+
+  if (error.code === 'ERR_NETWORK') {
+    return 'Backend is not running. Please start the server and try again.'
+  }
+
+  return 'Something went wrong'
+}
+
 function useAuth() {
   const [auth, setAuth] = useState(() => {
     const stored = localStorage.getItem('taskManagerAuth')
@@ -141,9 +153,7 @@ function Login({ auth, saveAuth }) {
       saveAuth(data)
       navigate('/dashboard')
     } catch (err) {
-      setError(
-        err.response?.data?.message || 'Something went wrong',
-      )
+      setError(getApiErrorMessage(err))
     } finally {
       setLoading(false)
     }
@@ -248,9 +258,7 @@ function Register({ auth }) {
         state: { message: 'Account created successfully. Please log in.' },
       })
     } catch (err) {
-      setError(
-        err.response?.data?.message || 'Something went wrong',
-      )
+      setError(getApiErrorMessage(err))
     } finally {
       setLoading(false)
     }
@@ -485,7 +493,7 @@ function Dashboard({ auth, logout }) {
       setTasks(data.tasks)
       setPages(data.pages)
     } catch (err) {
-      showToast('error', err.response?.data?.message || 'Something went wrong')
+      showToast('error', getApiErrorMessage(err))
     } finally {
       setLoading(false)
     }
@@ -505,7 +513,7 @@ function Dashboard({ auth, logout }) {
       })
       setCompletedTasks(data.tasks)
     } catch (err) {
-      showToast('error', err.response?.data?.message || 'Something went wrong')
+      showToast('error', getApiErrorMessage(err))
     } finally {
       setOverviewLoading(false)
     }
@@ -591,7 +599,7 @@ function Dashboard({ auth, logout }) {
       setActiveView('manage')
       return true
     } catch (err) {
-      showToast('error', err.response?.data?.message || 'Something went wrong')
+      showToast('error', getApiErrorMessage(err))
       return false
     } finally {
       setSaving(false)
@@ -606,7 +614,7 @@ function Dashboard({ auth, logout }) {
       await fetchTasks()
       await fetchCompletedTasks()
     } catch (err) {
-      showToast('error', err.response?.data?.message || 'Something went wrong')
+      showToast('error', getApiErrorMessage(err))
     } finally {
       setBusyTaskId('')
     }
@@ -620,7 +628,7 @@ function Dashboard({ auth, logout }) {
       await fetchTasks()
       await fetchCompletedTasks()
     } catch (err) {
-      showToast('error', err.response?.data?.message || 'Something went wrong')
+      showToast('error', getApiErrorMessage(err))
     } finally {
       setBusyTaskId('')
     }
