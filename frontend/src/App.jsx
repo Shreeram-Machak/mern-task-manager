@@ -336,6 +336,7 @@ function Register({ auth }) {
       setLoading(true)
       await api.post('/auth/register', form)
       navigate('/login', {
+        replace: true,
         state: { message: 'Account created successfully. Please log in.' },
       })
     } catch (err) {
