@@ -24,6 +24,14 @@
   box-sizing: border-box;
 }
 
+html,
+body,
+#root {
+  min-height: 100%;
+  overflow-x: hidden;
+  width: 100%;
+}
+
 body {
   background: var(--bg);
   margin: 0;
