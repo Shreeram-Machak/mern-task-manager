@@ -5,8 +5,8 @@ A full-stack task management application built with the MERN stack. Users can re
 ## Links
 
 - GitHub Repository: https://github.com/Shreeram-Machak/mern-task-manager
-- Vercel Live Frontend: https://your-app.vercel.app
-- Render Backend: https://your-backend.onrender.com
+- Vercel Live Frontend: https://mern-task-manager-i.vercel.app/
+- Render Backend: https://mern-task-manager-rr7v.onrender.com
 
 ## Features
 
