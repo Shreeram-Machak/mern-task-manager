@@ -423,7 +423,7 @@ function TaskForm({ onSubmit, editingTask, onCancel, loading }) {
 
   return (
     <form className="task-form" onSubmit={handleSubmit}>
-      <div className="form-grid">
+      <div className={`form-grid ${editingTask ? '' : 'single-field'}`}>
         <label>
           Title
           <input
@@ -437,18 +437,20 @@ function TaskForm({ onSubmit, editingTask, onCancel, loading }) {
             disabled={loading}
           />
         </label>
-        <label>
-          Status
-          <select
-            name="status"
-            value={taskStatus}
-            onChange={(event) => setTaskStatus(event.target.value)}
-            disabled={loading}
-          >
-            <option value="pending">Pending</option>
-            <option value="completed">Completed</option>
-          </select>
-        </label>
+        {editingTask && (
+          <label>
+            Status
+            <select
+              name="status"
+              value={taskStatus}
+              onChange={(event) => setTaskStatus(event.target.value)}
+              disabled={loading}
+            >
+              <option value="pending">Pending</option>
+              <option value="completed">Completed</option>
+            </select>
+          </label>
+        )}
       </div>
       <label>
         Description
