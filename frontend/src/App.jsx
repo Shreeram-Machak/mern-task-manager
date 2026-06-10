@@ -525,6 +525,7 @@ function Toast({ toast, onClose }) {
 const formatDate = (value) => new Date(value).toLocaleDateString()
 
 function Dashboard({ auth, logout }) {
+  const navigate = useNavigate()
   const [activeView, setActiveView] = useState('overview')
   const [tasks, setTasks] = useState([])
   const [completedTasks, setCompletedTasks] = useState([])
@@ -730,6 +731,11 @@ function Dashboard({ auth, logout }) {
 
   const isBusy = loading || overviewLoading || saving || Boolean(busyTaskId)
 
+  const handleLogout = () => {
+    logout()
+    navigate('/', { replace: true })
+  }
+
   return (
     <main className="dashboard-shell">
       <Toast toast={toast} onClose={() => setToast(null)} />
@@ -794,7 +800,7 @@ function Dashboard({ auth, logout }) {
             <FaList className="nav-icon" />
             <span>Manage All Tasks</span>
           </button>
-          <button type="button" disabled={isBusy} onClick={logout}>
+          <button type="button" disabled={isBusy} onClick={handleLogout}>
             <FaSignOutAlt className="nav-icon" />
             <span>Logout</span>
           </button>
