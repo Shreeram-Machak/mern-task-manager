@@ -1351,6 +1351,10 @@ td:nth-child(2) {
     padding: 14px;
   }
 
+  .dashboard-main {
+    padding-bottom: 104px;
+  }
+
   .auth-page {
     gap: 18px;
     min-height: 100svh;
@@ -1377,6 +1381,55 @@ td:nth-child(2) {
 
   .sidebar-brand strong {
     font-size: 17px;
+  }
+
+  .sidebar {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    bottom: 0;
+    left: 0;
+    padding: 8px 0 max(8px, env(safe-area-inset-bottom));
+    position: fixed;
+    right: 0;
+    top: auto;
+  }
+
+  .sidebar-brand {
+    display: none;
+  }
+
+  .sidebar-nav {
+    gap: 6px;
+    padding: 0 8px;
+  }
+
+  .sidebar-nav button {
+    border-bottom: 0;
+    border-left: 0;
+    border-radius: 8px;
+    display: grid;
+    flex: 0 0 86px;
+    gap: 4px;
+    min-height: 58px;
+    padding: 6px 8px;
+    place-items: center;
+    text-align: center;
+  }
+
+  .sidebar-nav button.active,
+  .sidebar-nav button:hover {
+    background: #3c444b;
+    border-bottom-color: transparent;
+  }
+
+  .sidebar-nav button span {
+    font-size: 11px;
+    line-height: 1.1;
+    white-space: normal;
+  }
+
+  .nav-icon {
+    height: 18px;
+    width: 18px;
   }
 
   .overview-header {
@@ -1543,6 +1596,10 @@ td:nth-child(2) {
     padding: 10px;
   }
 
+  .dashboard-main {
+    padding-bottom: 100px;
+  }
+
   .auth-panel,
   .task-form-panel,
   .task-table-panel {
@@ -1586,7 +1643,8 @@ td:nth-child(2) {
   .sidebar-nav button {
     font-size: 13px;
     gap: 8px;
-    padding: 0 10px;
+    flex-basis: 78px;
+    padding: 6px;
   }
 
   .nav-icon {
@@ -1653,6 +1711,7 @@ td:nth-child(2) {
 
   .sidebar-nav button {
     font-size: 12px;
+    flex-basis: 72px;
     padding: 0 8px;
   }
 
@@ -1663,5 +1722,25 @@ td:nth-child(2) {
 
   .summary-card strong {
     font-size: 22px;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .auth-panel:hover,
+  .summary-card:hover,
+  .task-form-panel:hover,
+  .task-table-panel:hover,
+  .primary-btn:hover:not(:disabled),
+  .ghost-btn:hover:not(:disabled),
+  .task-actions button:hover:not(:disabled) {
+    box-shadow: inherit;
+    transform: none;
+  }
+
+  .auth-grid-layer,
+  .home-grid-layer,
+  .auth-page::after,
+  .home-page::after {
+    transition: none;
   }
 }
