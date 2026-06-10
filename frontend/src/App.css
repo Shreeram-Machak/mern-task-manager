@@ -1659,6 +1659,116 @@ td:nth-child(2) {
   }
 }
 
+@media (max-width: 520px) {
+  .home-page,
+  .auth-page {
+    background-position: center;
+  }
+
+  .home-hero {
+    min-height: auto;
+    padding-top: 28px;
+  }
+
+  .home-copy {
+    max-width: 100%;
+  }
+
+  .home-copy h1 {
+    max-width: 9ch;
+  }
+
+  .dashboard-shell {
+    background: #f3f7ff;
+  }
+
+  .dashboard-main {
+    padding: 12px 12px 108px;
+  }
+
+  .overview-header {
+    margin-bottom: 14px;
+  }
+
+  .summary-grid {
+    gap: 10px;
+  }
+
+  .task-form-panel,
+  .task-table-panel {
+    border-radius: 8px;
+    box-shadow: 0 1px 6px rgba(15, 23, 42, 0.08);
+  }
+
+  .filters,
+  .overview-filters {
+    gap: 10px;
+  }
+
+  .empty-state {
+    padding: 22px 14px;
+  }
+
+  tbody {
+    gap: 10px;
+  }
+
+  tbody tr,
+  tbody tr:nth-child(odd),
+  tbody tr:nth-child(even) {
+    border-radius: 8px;
+    padding: 6px 0;
+  }
+
+  td {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .status {
+    max-width: min(100%, 220px);
+  }
+
+  td[data-label="Actions"] {
+    padding-bottom: 14px;
+  }
+
+  .task-actions,
+  .compact-actions {
+    align-items: center;
+    gap: 8px;
+  }
+
+  .compact-actions .icon-action,
+  .task-actions .icon-action {
+    flex: 0 0 42px;
+    height: 42px;
+    max-height: 42px;
+    min-height: 42px;
+    width: 42px;
+  }
+
+  .sidebar {
+    box-shadow: 0 -10px 24px rgba(15, 23, 42, 0.18);
+  }
+
+  .sidebar-nav {
+    gap: 4px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+
+  .sidebar-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sidebar-nav button {
+    flex: 1 0 56px;
+    min-width: 56px;
+  }
+}
+
 @media (max-width: 420px) {
   .home-page {
     padding: 10px;
@@ -1879,6 +1989,48 @@ td:nth-child(2) {
   }
 }
 
+@media (max-width: 340px) {
+  .dashboard-main {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .task-form-panel,
+  .task-table-panel,
+  .auth-panel {
+    padding: 10px;
+  }
+
+  .sidebar-nav {
+    padding: 0 4px;
+  }
+
+  .sidebar-nav button {
+    flex-basis: 48px;
+    min-width: 48px;
+  }
+
+  .nav-icon {
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .compact-actions .icon-action,
+  .task-actions .icon-action,
+  .task-actions button {
+    flex-basis: 40px;
+    height: 40px;
+    max-height: 40px;
+    min-height: 40px;
+    width: 40px;
+  }
+}
+
 @media (max-width: 390px) {
   .sidebar-nav button {
     flex-basis: 52px;
@@ -1920,6 +2072,23 @@ td:nth-child(2) {
 
   .task-actions button.danger {
     color: var(--danger) !important;
+  }
+}
+
+@media (max-width: 340px) {
+  .sidebar-nav button {
+    flex-basis: 48px;
+    min-width: 48px;
+  }
+
+  .compact-actions .icon-action,
+  .task-actions .icon-action,
+  .task-actions button {
+    flex-basis: 40px;
+    height: 40px;
+    max-height: 40px;
+    min-height: 40px;
+    width: 40px;
   }
 }
 
