@@ -174,11 +174,11 @@ Add the screenshots in a `screenshots` folder using these file names:
 
 ### Home Page
 
-![Home Page](screenshots/home-page.png)
+![Home Page](screenshots/Home.png)
 
 ### Login Page
 
-![Login Page](screenshots/login-page.png)
+![Login Page](screenshots/logine.png)
 
 ## Useful Scripts
 
