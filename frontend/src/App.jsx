@@ -61,6 +61,87 @@ function useAuth() {
   return { auth, saveAuth, logout }
 }
 
+function Home({ auth }) {
+  const handlePointerMove = (event) => {
+    const bounds = event.currentTarget.getBoundingClientRect()
+    const x = ((event.clientX - bounds.left) / bounds.width - 0.5).toFixed(3)
+    const y = ((event.clientY - bounds.top) / bounds.height - 0.5).toFixed(3)
+
+    event.currentTarget.style.setProperty('--pointer-x', x)
+    event.currentTarget.style.setProperty('--pointer-y', y)
+  }
+
+  const resetPointer = (event) => {
+    event.currentTarget.style.setProperty('--pointer-x', 0)
+    event.currentTarget.style.setProperty('--pointer-y', 0)
+  }
+
+  if (auth) {
+    return <Navigate to="/dashboard" replace />
+  }
+
+  return (
+    <main
+      className="home-page"
+      style={{ '--auth-bg': `url(${authBackground})` }}
+      onPointerMove={handlePointerMove}
+      onPointerLeave={resetPointer}
+    >
+      <div className="home-grid-layer" aria-hidden="true" />
+      <nav className="home-nav" aria-label="Home navigation">
+        <Link className="home-brand" to="/">
+          <span>TM</span>
+          Task Manager
+        </Link>
+        <div className="home-nav-actions">
+          <Link to="/login">Login</Link>
+          <Link className="home-nav-primary" to="/register">Register</Link>
+        </div>
+      </nav>
+
+      <section className="home-hero">
+        <div className="home-copy">
+          <p className="eyebrow">Task Management</p>
+          <h1>Task Manager</h1>
+          <p>
+            Plan your work, track progress, and keep every task status clear from one focused dashboard.
+          </p>
+          <div className="home-actions">
+            <Link className="primary-btn" to="/login">
+              Login
+            </Link>
+            <Link className="ghost-home-btn" to="/register">
+              Create account
+            </Link>
+          </div>
+        </div>
+
+        <div className="home-preview" aria-hidden="true">
+          <div className="home-preview-header">
+            <span />
+            Today
+          </div>
+          <div className="home-task-row active">
+            <FaClipboardList />
+            <span>Prepare project report</span>
+            <strong>Pending</strong>
+          </div>
+          <div className="home-task-row">
+            <FaEdit />
+            <span>Update dashboard UI</span>
+            <strong>In progress</strong>
+          </div>
+          <div className="home-task-row done">
+            <FaCheckCircle />
+            <span>Submit assignment</span>
+            <strong>Done</strong>
+          </div>
+        </div>
+      </section>
+    </main>
+  )
+}
+
 function AuthLayout({ children, title, subtitle }) {
   const handlePointerMove = (event) => {
     const bounds = event.currentTarget.getBoundingClientRect()
@@ -1040,6 +1121,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<Home auth={auth} />} />
         <Route path="/login" element={<Login auth={auth} saveAuth={saveAuth} />} />
         <Route path="/register" element={<Register auth={auth} />} />
         <Route
@@ -1050,7 +1132,7 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route path="*" element={<Navigate to={auth ? '/dashboard' : '/login'} />} />
+        <Route path="*" element={<Navigate to={auth ? '/dashboard' : '/'} />} />
       </Routes>
     </BrowserRouter>
   )
