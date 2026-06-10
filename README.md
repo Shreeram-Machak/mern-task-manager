@@ -1,27 +1,43 @@
 # MERN Task Manager
 
-A full-stack task management application built with MongoDB, Express.js, React, and Node.js. Users can register, log in, and manage their personal tasks with search, filters, pagination, and status updates.
+A full-stack task management application built with the MERN stack. Users can register, log in, create tasks, update tasks, delete tasks, toggle task status, search tasks, filter tasks, and view paginated task lists.
+
+## Links
+
+- GitHub Repository: https://github.com/Shreeram-Machak/mern-task-manager
+- Vercel Live Frontend: https://your-app.vercel.app
+- Render Backend: https://your-backend.onrender.com
 
 ## Features
 
 - User registration and login with JWT authentication
-- Protected task dashboard for authenticated users
+- Protected dashboard for authenticated users
 - Create, read, update, and delete tasks
 - Toggle tasks between pending and completed
 - Search tasks by title or description
 - Filter tasks by status
-- Paginated task list
+- Pagination for task lists
 - Success and error alerts
-- Mobile responsive dashboard and task views
-- Clear empty states such as "No tasks found"
+- Clear empty state: "No tasks found"
+- Responsive design for desktop and mobile
 
 ## Tech Stack
 
-- Frontend: React, Vite, React Router, Axios, React Icons
-- Backend: Node.js, Express.js, Mongoose
-- Database: MongoDB / MongoDB Atlas
-- Authentication: JWT, bcryptjs
-- Styling: CSS
+Frontend:
+- React
+- Vite
+- React Router DOM
+- Axios
+- React Icons
+- CSS
+
+Backend:
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT
+- bcryptjs
 
 ## Project Structure
 
@@ -34,13 +50,16 @@ task-management-mern/
 |   |-- models/
 |   |-- routes/
 |   |-- server.js
-|   `-- .env
+|   |-- .env.example
+|   `-- package.json
 |
 |-- frontend/
 |   |-- public/
 |   |-- src/
-|   `-- .env
+|   |-- .env.example
+|   `-- package.json
 |
+|-- .gitignore
 `-- README.md
 ```
 
@@ -66,7 +85,7 @@ MONGO_URI=mongodb://localhost:27017/task-manager
 JWT_SECRET=replace_with_a_secure_secret
 ```
 
-For MongoDB Atlas, replace `MONGO_URI` with your Atlas connection string and make sure your IP address is allowed in the Atlas Network Access settings.
+For MongoDB Atlas, use your Atlas connection string for `MONGO_URI` and allow your IP address in Atlas Network Access.
 
 4. Start the backend server:
 
@@ -74,7 +93,7 @@ For MongoDB Atlas, replace `MONGO_URI` with your Atlas connection string and mak
 npm run dev
 ```
 
-The backend runs at:
+Backend runs at:
 
 ```text
 http://localhost:5000
@@ -106,15 +125,15 @@ VITE_API_URL=http://localhost:5000/api
 npm run dev
 ```
 
-Vite will print the local frontend URL in the terminal, usually:
+Frontend usually runs at:
 
 ```text
 http://localhost:5173
 ```
 
-## .env Example
+## Environment Variables
 
-Backend `.env`:
+Backend `.env` example:
 
 ```env
 PORT=5000
@@ -122,7 +141,7 @@ MONGO_URI=mongodb://localhost:27017/task-manager
 JWT_SECRET=replace_with_a_secure_secret
 ```
 
-Frontend `.env`:
+Frontend `.env` example:
 
 ```env
 VITE_API_URL=http://localhost:5000/api
@@ -144,27 +163,22 @@ All task endpoints are protected and require a JWT token in the `Authorization` 
 | Method | Endpoint | Description |
 | --- | --- | --- |
 | GET | `/api/tasks` | Get all tasks |
-| POST | `/api/tasks` | Create task |
-| PUT | `/api/tasks/:id` | Update task |
-| DELETE | `/api/tasks/:id` | Delete task |
+| POST | `/api/tasks` | Create a task |
+| PUT | `/api/tasks/:id` | Update a task |
+| DELETE | `/api/tasks/:id` | Delete a task |
 | PATCH | `/api/tasks/:id/toggle` | Toggle task status |
 
 ## Screenshots
 
-Add screenshots of the main app screens here:
+Add the screenshots in a `screenshots` folder using these file names:
 
-- Login page
-- Register page
-- Task overview
-- Create or edit task form
-- Task list with search, filters, and pagination
+### Home Page
 
-Example:
+![Home Page](screenshots/home-page.png)
 
-```md
-![Login Page](screenshots/login.png)
-![Dashboard](screenshots/dashboard.png)
-```
+### Login Page
+
+![Login Page](screenshots/login-page.png)
 
 ## Useful Scripts
 
@@ -194,4 +208,4 @@ npm run preview
 
 ## Author
 
-Add your name, email, GitHub profile, or LinkedIn profile here.
+Shreeram Machak
