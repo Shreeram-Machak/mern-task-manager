@@ -93,10 +93,6 @@ function Home({ auth }) {
           <span>TM</span>
           Task Manager
         </Link>
-        <div className="home-nav-actions">
-          <Link to="/login">Login</Link>
-          <Link className="home-nav-primary" to="/register">Register</Link>
-        </div>
       </nav>
 
       <section className="home-hero">
