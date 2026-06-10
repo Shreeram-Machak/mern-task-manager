@@ -298,18 +298,6 @@ function Register({ auth }) {
   const [loading, setLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
 
-  const passwordStrength = useMemo(() => {
-    if (form.password.length >= 10) {
-      return { label: 'Strong password', level: 'strong' }
-    }
-
-    if (form.password.length >= 6) {
-      return { label: 'Good password', level: 'good' }
-    }
-
-    return { label: 'Minimum 6 characters', level: 'weak' }
-  }, [form.password])
-
   if (auth) {
     return <Navigate to="/dashboard" replace />
   }
@@ -384,12 +372,6 @@ function Register({ auth }) {
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </button>
           </span>
-          {form.password && (
-            <span className={`password-strength ${passwordStrength.level}`}>
-              <span />
-              {passwordStrength.label}
-            </span>
-          )}
         </label>
         {error && (
           <p className="error alert" role="alert">
@@ -1112,7 +1094,7 @@ function Dashboard({ auth, logout }) {
 
 function ProtectedRoute({ auth, children }) {
   if (!auth) {
-    return <Navigate to="/login" replace />
+    return <Navigate to="/" replace />
   }
 
   return children
